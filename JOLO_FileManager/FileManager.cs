@@ -1,8 +1,8 @@
 ﻿namespace JOLO_FileManager
 {
-    public class Class1
+    public class FileManager
     {
-        bool FileExists(/*filepath*/)
+        public static bool FileExists(/*filepath*/)
         {
             return true;
         }

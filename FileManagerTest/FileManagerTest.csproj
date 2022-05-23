@@ -18,4 +18,8 @@
     <ProjectReference Include="..\JOLO_FileManager\JOLO_FileManager.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+
 </Project>
