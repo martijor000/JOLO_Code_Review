@@ -9,7 +9,7 @@ namespace FileManagerTest
         [TestMethod]
         public void FileExistsPASS()
         {
-            FileManager.FileExists()
+            FileManager.FileExists();
         }
     }
 }
