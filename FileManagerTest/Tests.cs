@@ -6,8 +6,15 @@ namespace FileManagerTest
     [TestClass]
     public class Tests
     {
+        string _filePath;
+
         [TestMethod]
         public void FileExistsPASS()
+        {
+            FileManager.FileExists();
+        }
+        [TestMethod]
+        public void FileExistsFAIL()
         {
             FileManager.FileExists();
         }
