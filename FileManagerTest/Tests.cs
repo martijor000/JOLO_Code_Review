@@ -6,12 +6,15 @@ namespace FileManagerTest
     [TestClass]
     public class Tests
     {
-        string _filePath;
+        private TestContext Context { get; set; }
+
+        private string? _filePath;
 
         [TestMethod]
         public void FileExistsPASS()
         {
             FileManager.FileExists();
+            _filePath = Context.Properties["FileOne"].ToString();
         }
         [TestMethod]
         public void FileExistsFAIL()
