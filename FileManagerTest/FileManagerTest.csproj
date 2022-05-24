@@ -22,4 +22,19 @@
     <Folder Include="Files\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="TestData.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TestData.Runsettings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestData.Runsettings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>TestData.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

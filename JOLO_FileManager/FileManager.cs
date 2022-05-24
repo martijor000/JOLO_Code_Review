@@ -2,6 +2,10 @@
 {
     public class FileManager
     {
+        public getFilePath(){ 
+        string path = 
+
+        }
         string _filename = @"C:\JOLO_FileManager\\FileManagerTest\\Files";
         public static bool FileExists(/*filepath*/)
         {
