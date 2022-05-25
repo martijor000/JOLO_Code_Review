@@ -2,9 +2,9 @@
 {
     public class FileManager
     {
-        public static bool FileExists(/*filepath*/)
+        public static bool FileExists(string filePath)
         {
-            return true;
+            return File.Exists(filePath);
         }
         public static string DirectoryName(/*filepath*/)
         {
