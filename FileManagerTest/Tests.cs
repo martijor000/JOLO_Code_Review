@@ -6,21 +6,34 @@ namespace FileManagerTest
     [TestClass]
     public class Tests
     {
-        private TestContext _context;
+        public TestContext TestContext { get; set; }
 
         private string? _filePath;
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            _filePath = TestContext.Properties["FileOne"].ToString();
+        }
+
 
         [TestMethod]
         public void FileExistsPASS()
         {
-            _filePath = _context.Properties["FileOne"].ToString();
-            Assert.IsTrue(FileManager.FileExists(_filePath));
+            //Arange
+            bool result;
+
+            //Act
+            result = FileManager.FileExists(_filePath);
+            
+            //Assert
+            Assert.IsTrue(true, result.ToString());
         }
-        [TestMethod]
-        public void FileExistsFAIL()
-        {
-            Assert.IsNull(FileManager.FileExists(_filePath));
-        }
+        //[TestMethod]
+        //public void FileExistsFAIL()
+        //{
+        //    Assert.IsNull(FileManager.FileExists(_filePath));
+        //}
         //[TestMethod]
         //public void DirectoryNamePASS()
         //{
