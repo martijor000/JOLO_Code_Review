@@ -42,9 +42,9 @@ namespace JOLO_FileManager
         {
             return null;
         }
-        public static override string ToString() // Neal
+        public override string ToString() // Neal
         {
-            
+            return string.Empty;   
         }
         //      returns a string concatenation of:
         //          string FilePath
