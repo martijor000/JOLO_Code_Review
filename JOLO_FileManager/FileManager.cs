@@ -19,13 +19,16 @@ namespace JOLO_FileManager
         //      if a tie is found, first one alpha sorted
         public static string VowelWeight(string FilePath) // Neal
         {
-            if (Path.GetExtension(FilePath) != ".txt") // If not .txt return all 0's
+            // If not .txt return all 0's
+            if (Path.GetExtension(FilePath) != ".txt") 
             {
                 return "0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's";
             }
-            int[] vowelCounts = GetVowelCounts(FilePath); // Count vowels
-
-            return GetVowelOutputs(vowelCounts); // Output vowels in correct format
+            // Count vowels
+            int[] vowelCounts = GetVowelCounts(
+                File.ReadAllText(FilePath)); // Whole .txt doc => String
+            // Output vowels in correct format
+            return GetVowelOutputs(vowelCounts); 
         }
         public static string FileName(string FilePath) // Martin
         {
@@ -49,10 +52,8 @@ namespace JOLO_FileManager
         //          bool ReadOnly
         //          DateTime DateChanged
 
-        public static int[] GetVowelCounts(string FilePath)
+        public static int[] GetVowelCounts(string allText)
         {
-            string allText = File.ReadAllText(FilePath); // Whole .txt doc => String
-
             int[] vowelCounts = new int[6]; // Store the 6 vowels 0-5 alphabetically
 
             for (int j = 0; j < allText.Length; j++)

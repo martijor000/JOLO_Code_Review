@@ -62,6 +62,38 @@ namespace FileManagerTest
             Assert.AreNotEqual("", FileManager.VowelWeight(_filePath));
         }
         [TestMethod]
+        public void VowelWeightNOTTXTFILE()
+        {
+            Assert.AreEqual("0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's", FileManager.VowelWeight(null));
+        }
+        [TestMethod]
+        public void GetVowelOutputALL1s()
+        {
+            int[] allOnes = { 1, 1, 1, 1, 1, 1 };
+            Assert.AreEqual("1 A, 1 E, 1 I, 1 O, 1 U, 1 Y", 
+                FileManager.GetVowelOutputs(allOnes));
+        }
+        [TestMethod]
+        public void GetVowelOutputALL9s()
+        {
+            int[] allNines = { 9, 9, 9, 9, 9, 9 };
+            Assert.AreEqual("9 A's, 9 E's, 9 I's, 9 O's, 9 U's, 9 Y's", 
+                FileManager.GetVowelOutputs(allNines));
+        }
+        [TestMethod]
+        public void GetVowelCountAll0s()
+        {
+            int[] allZeros = { 0, 0, 0, 0, 0, 0 };
+            CollectionAssert.AreEqual(allZeros, FileManager.GetVowelCounts(""));
+        }
+        [TestMethod]
+        public void GetVowelCountAll3s()
+        {
+            int[] allThrees = { 3, 3, 3, 3, 3, 3 };
+            CollectionAssert.AreEqual(allThrees, 
+                FileManager.GetVowelCounts("aaaeeeiiiooouuuyyy"));
+        }
+        [TestMethod]
         public void FileNamePASS()
         {
             Assert.AreEqual("One", FileManager.FileName(_filePath));
