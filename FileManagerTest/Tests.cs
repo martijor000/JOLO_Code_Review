@@ -1,33 +1,26 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JOLO_FileManager;
+using System;
 
 namespace FileManagerTest
 {
     [TestClass]
     public class Tests
     {
-        public TestContext TestContext { get; set; }
+        private static string? _filePath;
 
-        private string? _filePath;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [ClassInitialize]
+        public static void Initialize(TestContext context)
         {
-            _filePath = TestContext.Properties["FileOne"].ToString();
+            //string fileName = "ich_will.mp3";
+            //string path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
+            _filePath = context.Properties["FileOne"].ToString();
         }
-
 
         [TestMethod]
         public void FileExistsPASS()
         {
-            //Arange
-            bool result;
-
-            //Act
-            result = FileManager.FileExists(_filePath);
-            
-            //Assert
-            Assert.IsTrue(true, result.ToString());
+            Assert.IsTrue(FileManager.FileExists(_filePath));
         }
         //[TestMethod]
         //public void FileExistsFAIL()

@@ -4,7 +4,8 @@
     {
         public static bool FileExists(string filePath)
         {
-            return File.Exists(filePath);
+            bool result = File.Exists(filePath);
+            return result;
         }
         public static string DirectoryName(/*filepath*/)
         {
