@@ -4,47 +4,47 @@ namespace JOLO_FileManager
 {
     public class FileManager
     {
-        public static bool FileExists(string FilePath) // Group
+        public static bool FileExists(string filePath) // Group
         {
-            return File.Exists(FilePath);
+            return File.Exists(filePath);
         }
-        public static string DirectoryName(string FilePath) // Martin
+        public static string DirectoryName(string filePath) // Martin
         {
-            return Directory.GetParent(FilePath).Name;
+            return Directory.GetParent(filePath).Name;
         }
         public static string LargestFileInCurrentDirectory(/*filepath*/) // Rolo
         {
             return String.Empty;
         }
         //      if a tie is found, first one alpha sorted
-        public static string VowelWeight(string FilePath) // Neal
+        public static string VowelWeight(string filePath) // Neal
         {
             // If not .txt return all 0's
-            if (Path.GetExtension(FilePath) != ".txt") 
+            if (Path.GetExtension(filePath) != ".txt") 
             {
                 return "0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's";
             }
-            // Count vowels
+            // Count vowels (Method Below)
             int[] vowelCounts = GetVowelCounts(
-                File.ReadAllText(FilePath)); // Whole .txt doc => String
-            // Output vowels in correct format
+                File.ReadAllText(filePath)); // Whole .txt doc => String
+            // Output vowels in correct format (Method Below)
             return GetVowelOutputs(vowelCounts); 
         }
-        public static string FileName(string FilePath) // Martin
+        public static string FileName(string filePath) // Martin
         {
-            return Path.GetFileNameWithoutExtension(FilePath);
+            return Path.GetFileNameWithoutExtension(filePath);
         }
-        public static string FileExtension(string FilePath) // Martin
+        public static string FileExtension(string filePath) // Martin
         {
-            return Path.GetExtension(FilePath);
+            return Path.GetExtension(filePath);
         }
         public static byte[]? GetByteArray(/*filepath*/) // Rolo
         {
             return null;
         }
-        public override string ToString() // Neal
+        public static override string ToString() // Neal
         {
-            return String.Empty;
+            
         }
         //      returns a string concatenation of:
         //          string FilePath
