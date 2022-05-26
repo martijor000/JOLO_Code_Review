@@ -23,11 +23,12 @@ namespace FileManagerTest
         {
             Assert.IsTrue(FileManager.FileExists(_filePath));
         }
-        //[TestMethod]
-        //public void FileExistsFAIL()
-        //{
-        //    Assert.IsNull(FileManager.FileExists(_filePath));
-        //}
+        [TestMethod]
+        public void FileExistsFAIL()
+        {
+            Assert.IsFalse(FileManager.FileExists(null));
+            Assert.IsFalse(FileManager.FileExists(""));
+        }
         //[TestMethod]
         //public void DirectoryNamePASS()
         //{
