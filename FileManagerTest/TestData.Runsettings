@@ -1,8 +1,8 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <RunSettings>
 	<TestRunParameters>
-		<Parameter name ='FileOne' value='JOLO_FileManager\Files\One.txt'/>
-		<Parameter name ='FileTwo' value='JOLO_FileManager\Files\Two.txt'/>
-		<Parameter name ='FileThree' value='JOLO_FileManager\Files\Three.txt'/>
+		<Parameter name ='FileOne' value='One.txt'/>
+		<Parameter name ='FileTwo' value='Two.txt'/>
+		<Parameter name ='FileThree' value='Three.txt'/>
 	</TestRunParameters>
 </RunSettings>

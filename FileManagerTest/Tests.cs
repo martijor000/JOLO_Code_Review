@@ -1,20 +1,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JOLO_FileManager;
 using System;
+using System.IO;
 
 namespace FileManagerTest
 {
     [TestClass]
     public class Tests
     {
-        private static string? _filePath;
+        private static string? _filePath = null;
 
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {
-            //string fileName = "ich_will.mp3";
-            //string path = Path.Combine(Environment.CurrentDirectory, @"Data\", fileName);
-            _filePath = context.Properties["FileOne"].ToString();
+            string fileName = context.Properties["FileOne"].ToString();
+            string path = Path.Combine(Environment.CurrentDirectory, @"Files\", fileName);
+            _filePath = path;
         }
 
         [TestMethod]
