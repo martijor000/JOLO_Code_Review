@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JOLO_FileManager;
 using System;
 using System.IO;
+using System.Reflection;
 
 namespace FileManagerTest
 {
@@ -14,7 +15,7 @@ namespace FileManagerTest
         public static void Initialize(TestContext context)
         {
             string fileName = context.Properties["FileOne"].ToString();
-            string path = Path.Combine(Environment.CurrentDirectory, @"Files\", fileName);
+            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.ToString(), @"Files\", fileName);
             _filePath = path;
         }
 
