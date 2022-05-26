@@ -44,11 +44,16 @@ namespace FileManagerTest
         //{
         //    FileManager.FileName();
         //}
-        //[TestMethod]
-        //public void VowelWeightPASS()
-        //{
-        //    FileManager.VowelWeight();
-        //}
+        [TestMethod]
+        public void VowelWeightPASS()
+        {
+            Assert.Equals("", FileManager.VowelWeight(_filePath));
+        }
+        [TestMethod]
+        public void VowelWeightFail()
+        {
+            Assert.AreNotEqual("", FileManager.VowelWeight(_filePath));
+        }
         //[TestMethod]
         //public void FileExtensionPASS()
         //{

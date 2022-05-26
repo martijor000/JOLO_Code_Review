@@ -4,8 +4,7 @@
     {
         public static bool FileExists(string filePath) // Group
         {
-            bool result = File.Exists(filePath);
-            return result;
+            return File.Exists(filePath);
         }
         public static string DirectoryName(/*filepath*/) // Martin
         {
@@ -16,8 +15,10 @@
             return String.Empty;
         }
         //      if a tie is found, first one alpha sorted
-        public static string VowelWeight(/*filepath*/) // Neal
+        public static string VowelWeight(string filepath) // Neal
         {
+            StreamReader sr = new StreamReader(filepath);
+            string path = filepath;
             return String.Empty;
         }
         //      Format: 12 Es, 1 A, 4 Is, 6 Os, 2 Us, 0Ys
