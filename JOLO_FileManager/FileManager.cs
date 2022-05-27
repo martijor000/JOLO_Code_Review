@@ -74,6 +74,8 @@ namespace JOLO_FileManager
         }
         public byte[]? GetByteArray() // Rolo
         {
+            //FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
+            //byte[] bytes = new byte[files.Length];
             return File.ReadAllBytes(FilePath!);
         }
         public override string ToString() // Neal
