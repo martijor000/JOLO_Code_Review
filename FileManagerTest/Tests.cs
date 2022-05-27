@@ -12,8 +12,9 @@ namespace FileManagerTest
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {
-            string fileName = context.Properties["FileOne"].ToString();
-            string path = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())
+            string fileName = context.Properties["FileOne"].ToString()!;
+            string path = Path.Combine(
+                Directory.GetParent(Directory.GetCurrentDirectory())
                 .Parent.Parent.Parent.ToString(), @"Files\", fileName);
             _filePath = path;
         }
@@ -21,24 +22,26 @@ namespace FileManagerTest
         [TestMethod]
         public void FileExistsPASS()
         {
-            Assert.IsTrue(FileManager.FileExists(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.IsTrue(fm.FileExists());
         }
         [TestMethod]
         public void FileExistsFAIL()
         {
-            Assert.IsFalse(FileManager.FileExists(null));
-            Assert.IsFalse(FileManager.FileExists(""));
+            FileManager fm = new("");
+            Assert.IsFalse(fm.FileExists());
         }
         [TestMethod]
         public void DirectoryNamePASS()
         {
-            Assert.AreEqual("Files", FileManager.DirectoryName(_filePath));
-
+            FileManager fm = new(_filePath!);
+            Assert.AreEqual("Files", fm.DirectoryName());
         }
         [TestMethod]
         public void DirectoryNameFAIL()
         {
-            Assert.AreNotEqual("Fail", FileManager.DirectoryName(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.AreNotEqual("Fail", fm.DirectoryName());
         }
         //[TestMethod]
         //public void LargestFileInCurrentDirectoryPASS()
@@ -53,14 +56,16 @@ namespace FileManagerTest
         [TestMethod]
         public void VowelWeightPASS()
         {
+            FileManager fm = new(_filePath!);
             Assert.AreEqual("1 A, 2 E's, 3 I's, 0 O's, 2 U's, 1 Y",
-                FileManager.VowelWeight(_filePath));
+                fm.VowelWeight());
         }
         [TestMethod]
         public void VowelWeightNOTTXTFILE()
         {
+            FileManager fm = new("");
             Assert.AreEqual("0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's", 
-                FileManager.VowelWeight(null));
+                fm.VowelWeight());
         }
         [TestMethod]
         public void GetVowelOutputALLONES()
@@ -92,27 +97,36 @@ namespace FileManagerTest
         [TestMethod]
         public void FileNamePASS()
         {
-            Assert.AreEqual("One", FileManager.FileName(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.AreEqual("One", fm.FileName());
         }
         [TestMethod]
         public void FileNameFAIL()
         {
-            Assert.AreNotEqual("Fail", FileManager.FileName(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.AreNotEqual("Fail", fm.FileName());
         }
         [TestMethod]
         public void FileExtensionPASS()
         {
-            Assert.AreEqual(".txt", FileManager.FileExtension(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.AreEqual(".txt", fm.FileExtension());
         }
         [TestMethod]
         public void FileExtensionFAIL()
         {
-            Assert.AreNotEqual("Fail", FileManager.FileExtension(_filePath));
+            FileManager fm = new(_filePath!);
+            Assert.AreNotEqual("Fail", fm.FileExtension());
         }
 
         // Byte Array
-
-
-        // ToString
+        
+        [TestMethod]
+        public void ToStringTEST()
+        {
+            FileManager fm = new(_filePath!);
+            string output = fm.ToString();
+            Assert.IsNotNull(output);
+        }
     }
 }

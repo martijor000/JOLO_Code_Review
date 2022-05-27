@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using JOLO_FileManager;
+
+FileManager fm = new FileManager("path");
+
+Console.WriteLine(fm.ToString());

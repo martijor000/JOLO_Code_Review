@@ -4,39 +4,47 @@ namespace JOLO_FileManager
 {
     public class FileManager
     {
-        public static bool FileExists(string filePath) // Group
+        public string? FilePath { get; set; }
+
+        public FileManager(string filePath)
         {
-            return File.Exists(filePath);
+            if (filePath == null)
+                throw new ArgumentNullException(nameof(filePath));
+            FilePath = filePath;
         }
-        public static string DirectoryName(string filePath) // Martin
+        public bool FileExists() // Group
         {
-            return Directory.GetParent(filePath).Name;
+            return File.Exists(FilePath);
         }
-        public static string LargestFileInCurrentDirectory(/*filepath*/) // Rolo
+        public string DirectoryName() // Martin
+        {
+            return Directory.GetParent(FilePath!).Name;
+        }
+        public string LargestFileInCurrentDirectory() // Rolo
         {
             return String.Empty;
         }
         //      if a tie is found, first one alpha sorted
-        public static string VowelWeight(string filePath) // Neal
+        public string VowelWeight() // Neal
         {
             // If not .txt return all 0's
-            if (Path.GetExtension(filePath) != ".txt") 
+            if (Path.GetExtension(FilePath) != ".txt") 
             {
                 return "0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's";
             }
             // Count vowels (Method Below)
             int[] vowelCounts = GetVowelCounts(
-                File.ReadAllText(filePath)); // Whole .txt doc => String
+                File.ReadAllText(FilePath!)); // Whole .txt doc => String
             // Output vowels in correct format (Method Below)
             return GetVowelOutputs(vowelCounts); 
         }
-        public static string FileName(string filePath) // Martin
+        public string FileName() // Martin
         {
-            return Path.GetFileNameWithoutExtension(filePath);
+            return Path.GetFileNameWithoutExtension(FilePath!);
         }
-        public static string FileExtension(string filePath) // Martin
+        public string FileExtension() // Martin
         {
-            return Path.GetExtension(filePath);
+            return Path.GetExtension(FilePath!);
         }
         public static byte[]? GetByteArray(/*filepath*/) // Rolo
         {
@@ -44,13 +52,19 @@ namespace JOLO_FileManager
         }
         public override string ToString() // Neal
         {
-            return string.Empty;   
+            StringBuilder sb = new();
+            FileInfo fileInfo = new(FilePath!);
+            sb.Append(
+                FilePath + "\n" +
+                fileInfo.Length + "\n" +
+                fileInfo.IsReadOnly + "\n" +
+                fileInfo.LastWriteTime);
+
+            return sb.ToString();   
         }
-        //      returns a string concatenation of:
-        //          string FilePath
-        //          long Size
-        //          bool ReadOnly
-        //          DateTime DateChanged
+
+        // The methods below are only public/static for ease of testing
+        // Will return to private / non-static when release build is made
 
         public static int[] GetVowelCounts(string allText)
         {
@@ -87,7 +101,7 @@ namespace JOLO_FileManager
         }
         public static string GetVowelOutputs(int[] vowelCounts)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (vowelCounts[0] != 1) // [0] == A's
             {
