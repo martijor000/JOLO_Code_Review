@@ -72,9 +72,9 @@ namespace JOLO_FileManager
         {
             return Path.GetExtension(FilePath!);
         }
-        public static byte[]? GetByteArray(/*filepath*/) // Rolo
+        public byte[]? GetByteArray() // Rolo
         {
-            return null;
+            return File.ReadAllBytes(FilePath!);
         }
         public override string ToString() // Neal
         {
