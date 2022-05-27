@@ -37,7 +37,7 @@
             // LoadingBar
             // 
             this.LoadingBar.BackColor = System.Drawing.Color.White;
-            this.LoadingBar.Location = new System.Drawing.Point(174, 488);
+            this.LoadingBar.Location = new System.Drawing.Point(183, 486);
             this.LoadingBar.Maximum = 200;
             this.LoadingBar.Name = "LoadingBar";
             this.LoadingBar.Size = new System.Drawing.Size(290, 20);
