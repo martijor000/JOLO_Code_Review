@@ -56,29 +56,29 @@ namespace JOLO_FileManager
         {
             int[] vowelCounts = new int[6]; // Store the 6 vowels 0-5 alphabetically
 
-            for (int j = 0; j < allText.Length; j++)
+            for (int i = 0; i < allText.Length; i++)
             {
-                if (allText[j].ToString().ToLower() == "a")
+                if (allText[i].ToString().ToLower() == "a")
                 {
                     vowelCounts[0]++;
                 }
-                if (allText[j].ToString().ToLower() == "e")
+                if (allText[i].ToString().ToLower() == "e")
                 {
                     vowelCounts[1]++;
                 }
-                if (allText[j].ToString().ToLower() == "i")
+                if (allText[i].ToString().ToLower() == "i")
                 {
                     vowelCounts[2]++;
                 }
-                if (allText[j].ToString().ToLower() == "o")
+                if (allText[i].ToString().ToLower() == "o")
                 {
                     vowelCounts[3]++;
                 }
-                if (allText[j].ToString().ToLower() == "u")
+                if (allText[i].ToString().ToLower() == "u")
                 {
                     vowelCounts[4]++;
                 }
-                if (allText[j].ToString().ToLower() == "y")
+                if (allText[i].ToString().ToLower() == "y")
                 {
                     vowelCounts[5]++;
                 }
