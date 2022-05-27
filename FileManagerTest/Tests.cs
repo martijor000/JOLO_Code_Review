@@ -43,11 +43,12 @@ namespace FileManagerTest
             FileManager fm = new(_filePath!);
             Assert.AreNotEqual("Fail", fm.DirectoryName());
         }
-        //[TestMethod]
-        //public void LargestFileInCurrentDirectoryPASS()
-        //{
-        //    FileManager.LargestFileInCurrentDirectory();
-        //}
+        [TestMethod]
+        public void LargestFileInCurrentDirectoryPASS()
+        {
+            FileManager fm = new(_filePath!);
+            fm.LargestFileInCurrentDirectory();
+        }
         //[TestMethod]
         //public void FileNamePASS()
         //{

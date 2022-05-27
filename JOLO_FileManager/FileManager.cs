@@ -22,7 +22,24 @@ namespace JOLO_FileManager
         }
         public string LargestFileInCurrentDirectory() // Rolo
         {
-            return String.Empty;
+            FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
+            FileInfo? largestFile = files[0];
+            List<FileInfo> largeTies = new();
+            for (int i = 0; i < files.Length; i++)
+            {
+                if (i > 0 && files[i].Length == largestFile.Length)
+                {
+                    largeTies.Add(files[i]);
+                }
+
+                if (files[i].Length > largestFile.Length)
+                {
+                    largestFile = files[i];
+                }    
+            }
+            largeTies.Sort();
+            return String.Empty; 
+
         }
         //      if a tie is found, first one alpha sorted
         public string VowelWeight() // Neal
@@ -153,5 +170,6 @@ namespace JOLO_FileManager
             }
             return sb.ToString();
         }
+
     }
 }
