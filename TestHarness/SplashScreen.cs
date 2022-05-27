@@ -20,6 +20,7 @@ namespace TestHarness
         private void SplashScreen_Load(object sender, EventArgs e)
         {
 
+
         }
 
         private void tmrLoading_Tick(object sender, EventArgs e)
