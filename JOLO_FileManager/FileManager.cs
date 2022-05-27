@@ -23,25 +23,34 @@ namespace JOLO_FileManager
         public string LargestFileInCurrentDirectory() // Rolo
         {
             FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
-            FileInfo? largestFile = files[0];
-            List<FileInfo> largeTies = new();
+            FileInfo largestFile = files[0]; 
+            List<string> largeTies = new();
+
             for (int i = 0; i < files.Length; i++)
             {
                 if (i > 0 && files[i].Length == largestFile.Length)
                 {
-                    largeTies.Add(files[i]);
-                }
+                    largeTies.Add(files[i].Name);
 
+                    if (!largeTies.Contains(files[i - 1].Name))
+                    {
+                        largeTies.Add(files[i - 1].Name);
+                    }
+                }
                 if (files[i].Length > largestFile.Length)
                 {
                     largestFile = files[i];
                 }    
             }
-            largeTies.Sort();
-            return String.Empty; 
 
+            if (largeTies.Count > 0)
+            {
+                largeTies.Sort();
+                return largeTies[0];
+            }
+
+            return largestFile.Name;
         }
-        //      if a tie is found, first one alpha sorted
         public string VowelWeight() // Neal
         {
             // If not .txt return all 0's
@@ -69,15 +78,12 @@ namespace JOLO_FileManager
         }
         public override string ToString() // Neal
         {
-            StringBuilder sb = new();
             FileInfo fileInfo = new(FilePath!);
-            sb.Append(
+            return 
                 FilePath + "\n" +
                 fileInfo.Length + "\n" +
                 fileInfo.IsReadOnly + "\n" +
-                fileInfo.LastWriteTime);
-
-            return sb.ToString();   
+                fileInfo.LastWriteTime;
         }
 
         // The methods below are only public/static for ease of testing
