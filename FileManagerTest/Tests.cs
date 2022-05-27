@@ -50,25 +50,11 @@ namespace FileManagerTest
             FileManager fm = new(_filePath!);
             fm.LargestFileInCurrentDirectory();
         }
-
-        [TestMethod]
-        public void FileManagerFAIL()
-        {
-            try
-            {
-                FileManager fileManager = new (null);
-            }
-            catch (ArgumentNullException)
-            {
-                Assert.IsTrue(true);
-            }
-            
-        }
-        [TestMethod]
-        public void FileManagerPASS()
-        {
-            FileManager fileManager = new FileManager(_filePath);
-        }
+        //[TestMethod]
+        //public void FileNamePASS()
+        //{
+        //    FileManager.FileName();
+        //}
         [TestMethod]
         public void VowelWeightPASS()
         {
@@ -135,8 +121,13 @@ namespace FileManagerTest
             Assert.AreNotEqual("Fail", fm.FileExtension());
         }
 
-        // Byte Array
         
+        [TestMethod]
+        public void GetByteArrayPass()
+        {
+          FileManager fm = new(_filePath!);
+          Assert.AreEqual("",fm.GetByteArray());
+        }
         [TestMethod]
         public void ToStringTEST()
         {
