@@ -37,10 +37,10 @@ namespace JOLO_FileManager
                 {
                     largeTies.Add(files[i].Name);
 
-                    if (!largeTies.Contains(files[i - 1].Name))
+                    if (!largeTies.Contains(files[i - 1].Name)) // BAD LOGIC
                     {
                         largeTies.Add(files[i - 1].Name);
-                    }
+                    }                                          // BAD
                 }
                 if (files[i].Length > largestFile.Length)
                 {
