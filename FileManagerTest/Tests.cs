@@ -50,11 +50,24 @@ namespace FileManagerTest
             FileManager fm = new(_filePath!);
             fm.LargestFileInCurrentDirectory();
         }
-        //[TestMethod]
-        //public void FileNamePASS()
-        //{
-        //    FileManager.FileName();
-        //}
+        [TestMethod]
+        public void FileManagerFAIL()
+        {
+            try
+            {
+                FileManager fileManager = new(null);
+            }
+            catch (ArgumentNullException)
+            {
+                Assert.IsTrue(true);
+            }
+
+        }
+        [TestMethod]
+        public void FileManagerPASS()
+        {
+            FileManager fileManager = new FileManager(_filePath);
+        }
         [TestMethod]
         public void VowelWeightPASS()
         {
