@@ -95,6 +95,7 @@ namespace FileManagerTest
             int[] allNines = { 9, 9, 9, 9, 9, 9 };
             Assert.AreEqual("9 A's, 9 E's, 9 I's, 9 O's, 9 U's, 9 Y's", 
                 FileManager.GetVowelOutputs(allNines));
+
         }
         [TestMethod]
         public void GetVowelCountALLZEROS()
@@ -130,8 +131,10 @@ namespace FileManagerTest
         [TestMethod]
         public void FileExtensionFAIL()
         {
+
             FileManager fm = new(_filePath!);
             Assert.AreNotEqual("Fail", fm.FileExtension());
+            
         }
 
         
@@ -139,7 +142,7 @@ namespace FileManagerTest
         public void GetByteArrayPass()
         {
           FileManager fm = new(_filePath!);
-          Assert.AreEqual("",fm.GetByteArray());
+         Assert.IsInstanceOfType(fm.GetByteArray(),typeof(byte[]));
         }
         [TestMethod]
         public void ToStringTEST()
