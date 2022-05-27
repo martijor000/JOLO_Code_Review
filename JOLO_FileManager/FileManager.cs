@@ -23,6 +23,11 @@ namespace JOLO_FileManager
         public string LargestFileInCurrentDirectory() // Rolo
         {
             FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
+            if (files.Length == 0)
+            {
+                return String.Empty;
+            }
+
             FileInfo largestFile = files[0]; 
             List<string> largeTies = new();
 
