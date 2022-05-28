@@ -8,19 +8,17 @@ namespace JOLO_FileManager
 
         public FileManager(string filePath)
         {
-            if (filePath == null)
-                throw new ArgumentNullException(nameof(filePath));
             FilePath = filePath;
         }
-        public bool FileExists() // Group
+        public bool FileExists()
         {
             return File.Exists(FilePath);
         }
-        public string DirectoryName() // Martin
+        public string DirectoryName()
         {
             return Directory.GetParent(FilePath!).Name;
         }
-        public string LargestFileInCurrentDirectory() // Rolo
+        public string LargestFileInCurrentDirectory()
         {
             FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
             if (files.Length == 0)
@@ -56,7 +54,7 @@ namespace JOLO_FileManager
 
             return largestFile.Name;
         }
-        public string VowelWeight() // Neal
+        public string VowelWeight()
         {
             // If not .txt return all 0's
             if (Path.GetExtension(FilePath) != ".txt") 
@@ -69,26 +67,26 @@ namespace JOLO_FileManager
             // Output vowels in correct format (Method Below)
             return GetVowelOutputs(vowelCounts); 
         }
-        public string FileName() // Martin
+        public string FileName()
         {
             return Path.GetFileNameWithoutExtension(FilePath!);
         }
-        public string FileExtension() // Martin
+        public string FileExtension()
         {
             return Path.GetExtension(FilePath!);
         }
-        public byte[]? GetByteArray() // Rolo
+        public byte[]? GetByteArray()
         {
             return File.ReadAllBytes(FilePath!);
         }
-        public override string ToString() // Neal
+        public override string ToString()
         {
             FileInfo fileInfo = new(FilePath!);
             return 
-                FilePath + "\n" +
-                fileInfo.Length + "\n" +
-                fileInfo.IsReadOnly + "\n" +
-                fileInfo.LastWriteTime;
+                $"File Path: {FilePath}\n" +
+                $"Size: {fileInfo.Length}\n" +
+                $"Is Read Only: {fileInfo.IsReadOnly}\n" +
+                $"Last Changed: {fileInfo.LastWriteTime}";
         }
 
         // The methods below are only public/static for ease of testing
