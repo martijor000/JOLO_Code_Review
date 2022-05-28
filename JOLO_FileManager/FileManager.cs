@@ -8,8 +8,6 @@ namespace JOLO_FileManager
 
         public FileManager(string filePath)
         {
-            if (filePath == null)
-                throw new ArgumentNullException(nameof(filePath));
             FilePath = filePath;
         }
         public bool FileExists()

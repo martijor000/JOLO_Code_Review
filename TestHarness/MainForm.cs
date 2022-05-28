@@ -21,7 +21,7 @@ namespace TestHarness
 
                 if (DialogResult == DialogResult.OK)
                 {
-                    FileManager fm = new(String.Empty);
+                    FileManager fm = new(ofd.FileName);
                     StringBuilder sb = new();
 
                     sb.Append(
@@ -37,6 +37,11 @@ namespace TestHarness
                     MessageBox.Show(sb.ToString());
                 }
             }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
