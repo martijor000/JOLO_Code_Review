@@ -47,6 +47,7 @@
             // timer
             // 
             this.timer.Enabled = true;
+            this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.tmrLoading_Tick);
             // 
             // SplashScreen

@@ -15,16 +15,16 @@ namespace TestHarness
 
         private void tmrLoading_Tick(object sender, EventArgs e)
         {
-            progressBar.Maximum = 10480;
+            progressBar.Maximum = 10487;
 
-            progressBar.Value += 500;
+            progressBar.Value += 50;
             progressBar.Value -= 1;
 
-            if (progressBar.Value == 10479)
+            if (progressBar.Value == 10486)
             {
                 progressBar.Value -= 1;
                 progressBar.Value += 1;
-                Thread.Sleep(500);
+                Thread.Sleep(250);
                 this.Close();
             }
         }
