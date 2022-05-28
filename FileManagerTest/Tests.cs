@@ -116,15 +116,20 @@ namespace FileManagerTest
 
             FileManager fm = new(_filePath!);
             Assert.AreNotEqual("Fail", fm.FileExtension());
-            
         }
 
-        
         [TestMethod]
         public void GetByteArrayPass()
         {
           FileManager fm = new(_filePath!);
          Assert.IsInstanceOfType(fm.GetByteArray(),typeof(byte[]));
+        }
+        [TestMethod]
+        public void GetByteArrayFail()
+        {
+
+            FileManager fm = new(_filePath!);
+            Assert.IsNotInstanceOfType("fail", typeof(byte[]));
         }
         [TestMethod]
         public void ToStringTEST()
