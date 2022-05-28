@@ -57,8 +57,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tmrLoading.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>20, 4</value>
+  <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -67,7 +67,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAApEAAAKRCAYAAAAMK/LLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAA/7JJREFUeF60/fV/HFuW7Yu+v+Lde85tqqrNTN7bzMzMzCRLsmQSs2RZlsy2zMwg
+        vAAADrwBlbxySQAA/7JJREFUeF60/fV/HFuW7Yu+v+Lde85tqqrNTN7bzMzMzCRLsmQSs2RZlsy2zMwg
         ZuZMKcWMZtpQ1dXd59y+59473hgrMmRtb1d19eec98P4RGREZmRmxFpzfudc9P/5aGsqbH3hmY3PPTPw
         5Y5MKh1feabje58cDN1bgJH+JRi2rxCDd+Vh2O58jNxXhIn+xZjmX2g0PbAQs0JLMTO0GPOiyrE01oE1
         B2uwLt6F9dxujKumKqkybDhQiK0HC+GfWI246+04k/wIN3JeIKnoR2SW/dEoteg17uU+xY30HlxL7cbt

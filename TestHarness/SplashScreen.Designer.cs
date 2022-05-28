@@ -30,25 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen));
-            this.LoadingBar = new System.Windows.Forms.ProgressBar();
-            this.tmrLoading = new System.Windows.Forms.Timer(this.components);
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // LoadingBar
+            // progressBar
             // 
-            this.LoadingBar.BackColor = System.Drawing.Color.White;
-            this.LoadingBar.Location = new System.Drawing.Point(183, 486);
-            this.LoadingBar.Maximum = 200;
-            this.LoadingBar.Name = "LoadingBar";
-            this.LoadingBar.Size = new System.Drawing.Size(290, 20);
-            this.LoadingBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.LoadingBar.TabIndex = 0;
+            this.progressBar.BackColor = System.Drawing.Color.White;
+            this.progressBar.Location = new System.Drawing.Point(183, 486);
+            this.progressBar.Maximum = 200;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(290, 20);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 0;
             // 
-            // tmrLoading
+            // timer
             // 
-            this.tmrLoading.Enabled = true;
-            this.tmrLoading.Interval = 20;
-            this.tmrLoading.Tick += new System.EventHandler(this.tmrLoading_Tick);
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.tmrLoading_Tick);
             // 
             // SplashScreen
             // 
@@ -58,7 +57,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(657, 657);
-            this.Controls.Add(this.LoadingBar);
+            this.Controls.Add(this.progressBar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -72,7 +71,7 @@
 
         #endregion
 
-        private ProgressBar LoadingBar;
-        private System.Windows.Forms.Timer tmrLoading;
+        private ProgressBar progressBar;
+        private System.Windows.Forms.Timer timer;
     }
 }
