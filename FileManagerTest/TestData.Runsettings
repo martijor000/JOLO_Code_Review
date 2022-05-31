@@ -92,9 +92,8 @@
 		</DataCollectors>
 	</DataCollectionRunSettings>
 	<TestRunParameters>
-		<Parameter name ='FileOne' value='One.txt'/>
-		<Parameter name ='FileTwo' value='Two.txt'/>
-		<Parameter name ='FileThree' value='Three.txt'/>
+		<Parameter name ='LargestFile' value='Largest.txt'/>
+		<Parameter name ='FileOne' value='a.txt'/>
 	</TestRunParameters>
 
 	<!--<LoggerRunSettings>

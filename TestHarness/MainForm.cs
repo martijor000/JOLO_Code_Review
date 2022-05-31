@@ -31,7 +31,7 @@ namespace TestHarness
                         $"Vowel Weight: {fm.VowelWeight()}\n" +
                         $"File Name: {fm.FileName()}\n" +
                         $"File Extension: {fm.FileExtension()}\n" +
-                        $"Length of Byte Array: {fm.GetByteArray().Length}\n" +
+                        $"Decoded Byte Array: {Encoding.Default.GetString(fm.GetByteArray()!)}\n" +
                         $"ToString() \n{fm}");
 
                     MessageBox.Show(sb.ToString());

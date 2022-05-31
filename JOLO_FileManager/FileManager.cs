@@ -21,37 +21,15 @@ namespace JOLO_FileManager
         public string LargestFileInCurrentDirectory()
         {
             FileInfo[] files = Directory.GetParent(FilePath!).GetFiles();
-            if (files.Length == 0)
-            {
-                return String.Empty;
-            }
-
             FileInfo largestFile = files[0]; 
-            List<string> largeTies = new();
 
             for (int i = 0; i < files.Length; i++)
             {
-                if (i > 0 && files[i].Length == largestFile.Length)
-                {
-                    largeTies.Add(files[i].Name);
-
-                    if (!largeTies.Contains(largestFile.Name))
-                    {
-                        largeTies.Add(largestFile.Name);
-                    }
-                }
                 if (files[i].Length > largestFile.Length)
                 {
                     largestFile = files[i];
                 }    
             }
-
-            if (largeTies.Count > 0)
-            {
-                largeTies.Sort();
-                return largeTies[0];
-            }
-
             return largestFile.Name;
         }
         public string VowelWeight()
@@ -59,7 +37,7 @@ namespace JOLO_FileManager
             // If not .txt return all 0's
             if (Path.GetExtension(FilePath) != ".txt") 
             {
-                return "0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's";
+                return "0 As, 0 Es, 0 Is, 0 Os, 0 Us, 0 Ys";
             }
             // Count vowels (Method Below)
             int[] vowelCounts = GetVowelCounts(
@@ -131,7 +109,7 @@ namespace JOLO_FileManager
 
             if (vowelCounts[0] != 1) // [0] == A's
             {
-                sb.Append($"{vowelCounts[0]} A's, ");
+                sb.Append($"{vowelCounts[0]} As, ");
             }
             else
             {
@@ -139,7 +117,7 @@ namespace JOLO_FileManager
             }
             if (vowelCounts[1] != 1) // [1] == E's
             {
-                sb.Append($"{vowelCounts[1]} E's, ");
+                sb.Append($"{vowelCounts[1]} Es, ");
             }
             else
             {
@@ -147,7 +125,7 @@ namespace JOLO_FileManager
             }
             if (vowelCounts[2] != 1) // [2] == I's
             {
-                sb.Append($"{vowelCounts[2]} I's, ");
+                sb.Append($"{vowelCounts[2]} Is, ");
             }
             else
             {
@@ -155,7 +133,7 @@ namespace JOLO_FileManager
             }
             if (vowelCounts[3] != 1) // [3] == O's
             {
-                sb.Append($"{vowelCounts[3]} O's, ");
+                sb.Append($"{vowelCounts[3]} Os, ");
             }
             else
             {
@@ -163,7 +141,7 @@ namespace JOLO_FileManager
             }
             if (vowelCounts[4] != 1) // [4] == U's
             {
-                sb.Append($"{vowelCounts[4]} U's, ");
+                sb.Append($"{vowelCounts[4]} Us, ");
             }
             else
             {
@@ -171,7 +149,7 @@ namespace JOLO_FileManager
             }
             if (vowelCounts[5] != 1) // [5] == Y's
             {
-                sb.Append($"{vowelCounts[5]} Y's");
+                sb.Append($"{vowelCounts[5]} Ys");
             }
             else
             {

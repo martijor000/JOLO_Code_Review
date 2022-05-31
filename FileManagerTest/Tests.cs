@@ -9,15 +9,22 @@ namespace FileManagerTest
     public class Tests
     {
         private static string? _filePath = null;
+        private static string? _filePathTwo = null;
 
         [ClassInitialize]
         public static void Initialize(TestContext context)
         {
-            string fileName = context.Properties["FileOne"].ToString()!;
-            string path = Path.Combine(
-                Directory.GetParent(Directory.GetCurrentDirectory())
-                .Parent.Parent.Parent.ToString(), @"Files\", fileName);
-            _filePath = path;
+            _filePath = Path.Combine(
+                Directory.GetParent(Directory.GetCurrentDirectory()) // dir
+                .Parent.Parent.Parent.ToString(), 
+                @"Files\",                                           // folder
+                context.Properties["LargestFile"].ToString()!);      // name
+
+            _filePathTwo = Path.Combine(
+                Directory.GetParent(Directory.GetCurrentDirectory()) // dir
+                .Parent.Parent.Parent.ToString(),
+                @"Files\MoreFiles\",                                 // folder
+                context.Properties["FileOne"].ToString()!);          // name
         }
 
         [TestMethod]
@@ -45,23 +52,29 @@ namespace FileManagerTest
             Assert.AreNotEqual("Fail", fm.DirectoryName());
         }
         [TestMethod]
-        public void LargestFileInCurrentDirectoryPASS()
+        public void LargestFileFoundPASS()
         {
             FileManager fm = new(_filePath!);
-            fm.LargestFileInCurrentDirectory();
+            Assert.AreEqual("Largest.txt", fm.LargestFileInCurrentDirectory());
+        }
+        [TestMethod]
+        public void LargestFileNotFirstFilePASS()
+        {
+            FileManager fm = new(_filePathTwo!);
+            Assert.AreEqual("b.txt", fm.LargestFileInCurrentDirectory());
         }
         [TestMethod]
         public void VowelWeightPASS()
         {
             FileManager fm = new(_filePath!);
-            Assert.AreEqual("4 A's, 5 E's, 0 I's, 0 O's, 0 U's, 0 Y's",
+            Assert.AreEqual("86 As, 143 Es, 85 Is, 90 Os, 37 Us, 25 Ys",
                 fm.VowelWeight());
         }
         [TestMethod]
         public void VowelWeightNOTTXTFILE()
         {
             FileManager fm = new("");
-            Assert.AreEqual("0 A's, 0 E's, 0 I's, 0 O's, 0 U's, 0 Y's", 
+            Assert.AreEqual("0 As, 0 Es, 0 Is, 0 Os, 0 Us, 0 Ys", 
                 fm.VowelWeight());
         }
         [TestMethod]
@@ -75,7 +88,7 @@ namespace FileManagerTest
         public void GetVowelOutputALLNINES()
         {
             int[] allNines = { 9, 9, 9, 9, 9, 9 };
-            Assert.AreEqual("9 A's, 9 E's, 9 I's, 9 O's, 9 U's, 9 Y's", 
+            Assert.AreEqual("9 As, 9 Es, 9 Is, 9 Os, 9 Us, 9 Ys", 
                 FileManager.GetVowelOutputs(allNines));
 
         }
@@ -96,7 +109,7 @@ namespace FileManagerTest
         public void FileNamePASS()
         {
             FileManager fm = new(_filePath!);
-            Assert.AreEqual("One", fm.FileName());
+            Assert.AreEqual("Largest", fm.FileName());
         }
         [TestMethod]
         public void FileNameFAIL()
