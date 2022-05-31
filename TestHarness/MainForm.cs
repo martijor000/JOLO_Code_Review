@@ -27,11 +27,11 @@ namespace TestHarness
                     sb.Append(
                         $"File Exists: {fm.FileExists()}\n" +
                         $"Directory Name: {fm.DirectoryName()}\n" +
-                        $"Largest File In Current Directory: {fm.LargestFileInCurrentDirectory()}\n" +
+                        $"Largest File in Current Directory: {fm.LargestFileInCurrentDirectory()}\n" +
                         $"Vowel Weight: {fm.VowelWeight()}\n" +
                         $"File Name: {fm.FileName()}\n" +
                         $"File Extension: {fm.FileExtension()}\n" +
-                        $"Get Byte Array: {fm.GetByteArray()}\n" +
+                        $"Length of Byte Array: {fm.GetByteArray().Length}\n" +
                         $"ToString() \n{fm}");
 
                     MessageBox.Show(sb.ToString());
