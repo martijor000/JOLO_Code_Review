@@ -26,7 +26,6 @@ namespace FileManagerTest
                 @"Files\MoreFiles\",                                 // folder
                 context.Properties["FileOne"].ToString()!);          // name
         }
-
         [TestMethod]
         public void FileExistsPASS()
         {
@@ -130,7 +129,6 @@ namespace FileManagerTest
             FileManager fm = new(_filePath!);
             Assert.AreNotEqual("Fail", fm.FileExtension());
         }
-
         [TestMethod]
         public void GetByteArrayPass()
         {
