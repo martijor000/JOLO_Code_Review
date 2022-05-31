@@ -65,7 +65,7 @@ namespace JOLO_FileManager
             int[] vowelCounts = GetVowelCounts(
                 File.ReadAllText(FilePath!)); // Whole .txt doc => String
             // Output vowels in correct format (Method Below)
-            return GetVowelOutputs(vowelCounts); 
+            return GetVowelOutputs(vowelCounts);
         }
         public string FileName()
         {
@@ -82,7 +82,7 @@ namespace JOLO_FileManager
         public override string ToString()
         {
             FileInfo fileInfo = new(FilePath!);
-            return 
+            return
                 $"File Path: {FilePath}\n" +
                 $"Size: {fileInfo.Length}\n" +
                 $"Is Read Only: {fileInfo.IsReadOnly}\n" +
