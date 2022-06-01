@@ -15,6 +15,9 @@ namespace JOLO_FileManager
 
             FilePath = filePath;
         }
+
+
+
         public bool FileExists()
         {
             return File.Exists(FilePath);
