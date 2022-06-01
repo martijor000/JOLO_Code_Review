@@ -74,6 +74,8 @@ namespace JOLO_FileManager
                 $"Is Read Only: {fileInfo.IsReadOnly}\n" +
                 $"Last Changed: {fileInfo.LastWriteTime}";
         }
+        
+        
 
         // The methods below are only public/static for ease of testing
         // Will return to private / non-static when release build is made
